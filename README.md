@@ -1,23 +1,26 @@
-Title of your plugin
+Microsoft SQL Driver for YOURLS 1.7.1+
 ====================
 
-Plugin for [YOURLS](http://yourls.org) `<here: min-version if applicable>`. 
+Plugin for [YOURLS](http://yourls.org) `1.7.1+`. 
 
 Description
 -----------
-*Here*: replace this paragraph with a detailed explanation of what your plugin does: what it improves, what it adds, or the default behavior it replaces. Use clear and short sentences. Be convincing.
+This is a custom DB layer that allows YOURLS to use a Microsoft SQL Server (2012+) Database.
+
+This requires YOURLS **1.7.1** just like ozh's SQLite plug-in (if the official 1.7.1 [release](https://github.com/YOURLS/YOURLS/releases) isn't ready yet, that means you'll need to install [current master](https://github.com/YOURLS/YOURLS/archive/master.zip)) and may completely break with the next release
 
 Installation
 ------------
-1. In `/user/plugins`, create a new folder named `<here: your plugin folder name>`.
-2. Drop these files in that directory.
-3. Go to the Plugins administration page ( *eg* `http://sho.rt/admin/plugins.php` ) and activate the plugin.
-4. Have fun!
+1. Copy `db.php`, `ez_sql_sqlsrv.php` and `ez_sql_sqlsrv_yourls.php` into the `/user` directory.
+2. Create a new database on your SQL Server
+3. Setup your config.php as normal with the database credentials, name and hostname
+4. Enjoy!
+
+FAQ
+-------
+##### *Will this break my existing install that uses MySQL?*
+No, just like the SQLite driver written by ozh your original database will remain untouched.
 
 License
 -------
-*Here*: your license type. Feel free to use YOURLS' license, aka *"Do whatever the hell you want with it"*.
-
-One more thing
---------------
-*Here*: any other content, as needed. An important information should be contact information for bug reports or user questions, if you decide not to use Github issues in your plugin repository.
+*"Do whatever the hell you want with it"*.
