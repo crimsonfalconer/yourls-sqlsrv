@@ -52,6 +52,7 @@
 		var $dbname = false;
 		var $dbhost = false;
 		var $rows_affected = false;
+		var $character_set = false;
 
 		//if we want to convert Queries in MySql syntax to MS-SQL syntax. Yes, there
 		//are some differences in query syntax.
@@ -97,6 +98,11 @@
 			if ( $dbuser ) {
 				$connectionOptions["UID"] = $dbuser;
 				$connectionOptions["PWD"] = $dbpassword;
+			}
+			
+			//	Set MSSQL CharacterSet to use specific character encoding by opoepev 20200917
+			if ($this->character_set) {
+				$connectionOptions["CharacterSet"] = $this->character_set;
 			}
 //			$connectionOptions = array("UID" => $dbuser, "PWD" => $dbpassword, "Database" => $dbname);
 
