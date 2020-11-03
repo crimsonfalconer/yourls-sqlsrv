@@ -23,7 +23,11 @@ function yourls_db_sqlsrv_connect() {
 	require_once( YOURLS_USERDIR . '/ez_sql_sqlsrv.php' );
     require_once( YOURLS_USERDIR . '/ez_sql_sqlsrv_yourls.php' );
 	
-    $ydb = new ezSQL_sqlsrv_YOURLS( YOURLS_DB_USER, YOURLS_DB_PASS, YOURLS_DB_NAME, YOURLS_DB_HOST );
+	$ydb = new ezSQL_sqlsrv_YOURLS( YOURLS_DB_USER, YOURLS_DB_PASS, YOURLS_DB_NAME, YOURLS_DB_HOST );
+
+	// Set character encoding you want by opoepev 20200917
+	$ydb->character_set = 'UTF-8';
+
     $ydb->DB_driver = 'sqlsrv';
     yourls_debug_log( "DB driver: sqlsrv" );
     
